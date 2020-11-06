@@ -23,7 +23,7 @@ class HealthStepDefs: En {
 
         When("i call my service") {
             println("W")
-            res = RestTemplate().getForEntity("http://localhost:" + port + "/health", String::class.java)
+            res = RestTemplate().getForEntity("http://localhost:$port/health", String::class.java)
         }
 
         Then("i get a 200") {
