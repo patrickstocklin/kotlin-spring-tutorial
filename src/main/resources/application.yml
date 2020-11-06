@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    driverClassName: org.h2.Driver
+    url: "jdbc:h2:mem:userdb"
+    username: sa
+    password: password
+    data: classpath:db/data.sql
+
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
