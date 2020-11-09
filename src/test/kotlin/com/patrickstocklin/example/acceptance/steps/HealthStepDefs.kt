@@ -1,14 +1,16 @@
 package com.patrickstocklin.example.acceptance.steps
 
+import com.github.tomakehurst.wiremock.WireMockServer
 import io.cucumber.java8.En
 import junit.framework.Assert.assertEquals
+import org.springframework.beans.factory.annotation.Autowired
 
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.ResponseEntity
 
 import org.springframework.web.client.RestTemplate
 
-class HealthStepDefs: En {
+class HealthStepDefs(@Autowired val wiremock: WireMockServer): En {
 
     @LocalServerPort
     lateinit var port: Integer
@@ -19,6 +21,7 @@ class HealthStepDefs: En {
         Given("my service is deployed") {
             println("Given")
             println(port)
+            wiremock.stop()
         }
 
         When("i call my service") {

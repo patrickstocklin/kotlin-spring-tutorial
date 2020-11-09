@@ -17,3 +17,10 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+
+service:
+  lookup:
+    url: http://localhost:9999
+
+wiremock:
+  enabled: false

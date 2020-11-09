@@ -16,5 +16,7 @@ import org.springframework.test.context.ContextConfiguration
 )
 @CucumberContextConfiguration
 @ContextConfiguration(classes = [Application::class])
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    properties = ["wiremock.enabled=true"])
 class CucumberConfig
